@@ -39,7 +39,7 @@ class MatchGame{
         }
     }
     
-    func flipCardUp(_ which: Int){      //"_" indicates no name outside func, but called "which" inside the func
+    func flipCardUp(_ which: Int){
         if matrix[which].isShowing == false{
             //flip up
             matrix[which].isShowing = true
@@ -49,7 +49,7 @@ class MatchGame{
             //update the message at the bottom of the screen
             message = matrix[which].text
             
-            if(previous != 1){      //for first time, needs protection so we don't try to use -1 as the previous card value
+            if(previous != -1){      //for first time, needs protection so we don't try to use -1 as the previous card value
                 //logic for matching
                 //want to flip the last card over
                 matrix[previous].isShowing = false

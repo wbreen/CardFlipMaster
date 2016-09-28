@@ -228,7 +228,6 @@
                         <outlet property="Card1_4" destination="CK5-gT-VYd" id="B6O-9x-xEy"/>
                         <outlet property="Card2_1" destination="54f-tR-i66" id="xve-ie-jPk"/>
                         <outlet property="Card2_2" destination="PEX-jz-Tb0" id="UTF-iY-j3r"/>
-                        <outlet property="Card2_2d" destination="PEX-jz-Tb0" id="Ygi-sX-Ygp"/>
                         <outlet property="Card2_3" destination="xYS-FQ-kbZ" id="WtB-od-euA"/>
                         <outlet property="Card2_4" destination="0Q1-cd-XfC" id="LgL-FE-KxU"/>
                         <outlet property="Card3_1" destination="eQ6-UK-EN3" id="xzv-3n-2I4"/>
