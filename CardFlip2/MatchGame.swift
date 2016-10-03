@@ -28,7 +28,7 @@ class MatchGame{
     
     //not initializing matrix first because we need to make it a random arrangement
     var matrix: [Card] = []
-        //need ": [Card] to make sure we know what sort of array the matrix is (array of cards)
+        //need ": [Card]" to make sure we know what sort of array the matrix is (array of cards)
         //making this a normal array (not 2D) so 1st 4 are first line, next 4 are second, etc...
     
     //initializer to fill array with values
@@ -50,10 +50,31 @@ class MatchGame{
             message = matrix[which].text
             
             if(previous != -1){      //for first time, needs protection so we don't try to use -1 as the previous card value
+                                     //also need to set if enum is inactive, then go through this
                 //logic for matching
+                if(matrix[previous].suit == matrix[which].suit){
+                    //gray out previous
+                    //gray out which
+                    matrix[which].isShowing = true
+                    matrix[previous].isShowing = true
+                    score = score + 5
+                    message = "Match of \(matrix[which].suit)"
+                    previous = -1
+                }
+                if(matrix[previous].value == matrix[which].value){
+                    //gray out previous
+                    //gray out which
+                    //matrix[which].isShowing = true
+                    //matrix[previous].isShowing = true
+                    score = score + 17
+                    message = "Match of \(matrix[which].value)"
+                    previous = -1
+                }
                 //want to flip the last card over
-                matrix[previous].isShowing = false
+                else{matrix[previous].isShowing = false}
             }
+          
+            
             previous = which
         }
     }

@@ -41,9 +41,8 @@ class Card {
 }
 
 let values = ["two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace"]
-
-//add the hearts and spades to make the full deck of cards (after I add the extra card pictures)
 let suits = ["clubs", "diamonds", "hearts", "spades"]
+
 
 class Deck {
     

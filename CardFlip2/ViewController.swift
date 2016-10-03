@@ -47,6 +47,8 @@ class ViewController: UIViewController {
                       Card2_1, Card2_2, Card2_3, Card2_4,
                       Card3_1, Card3_2, Card3_3, Card3_4,
                       Card4_1, Card4_2, Card4_3, Card4_4]
+        //gives entry label
+        messageAreaLabel.text = matchGame.message
     }
     
     
