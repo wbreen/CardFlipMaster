@@ -55,13 +55,15 @@ class MatchGame{
                 if(matrix[previous].suit == matrix[which].suit){
                     //gray out previous
                     //gray out which
-                    matrix[which].isShowing = true
-                    matrix[previous].isShowing = true
+                    //matrix[which].isShowing = true
+                    //matrix[previous].isShowing = true
                     score = score + 5
                     message = "Match of \(matrix[which].suit)"
                     previous = -1
+                    print("matched suit and previous value is :\(previous)")
+                    return
                 }
-                if(matrix[previous].value == matrix[which].value){
+                else if(matrix[previous].value == matrix[which].value){
                     //gray out previous
                     //gray out which
                     //matrix[which].isShowing = true
@@ -69,13 +71,25 @@ class MatchGame{
                     score = score + 17
                     message = "Match of \(matrix[which].value)"
                     previous = -1
+                    print("matched value, and previous value is :\(previous)")
+                    return
                 }
                 //want to flip the last card over
-                else{matrix[previous].isShowing = false}
+                else{
+                    matrix[previous].isShowing = false
+                    previous = which
+                    print("no match, previous value is: \(previous)")
+                }
             }
-          
             
-            previous = which
+            if (previous == -1 && flips > 1){
+                previous = which
+                print("set previous value equal to which: \(previous)")
+            }
+            else{
+                previous = which
+                print("previous equals which: \(previous)")
+            }
         }
     }
     
