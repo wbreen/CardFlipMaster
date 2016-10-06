@@ -25,6 +25,7 @@ class MatchGame{
     
     //sets first value of the previous card
     var previous = -1       //use a negative number b/c it isn't in the deck
+    var isMatch = false
     
     //not initializing matrix first because we need to make it a random arrangement
     var matrix: [Card] = []
@@ -59,7 +60,9 @@ class MatchGame{
                     //matrix[previous].isShowing = true
                     score = score + 5
                     message = "Match of \(matrix[which].suit)"
+                    isMatch = true
                     previous = -1
+                    
                     print("matched suit and previous value is :\(previous)")
                     return
                 }
@@ -70,7 +73,9 @@ class MatchGame{
                     //matrix[previous].isShowing = true
                     score = score + 17
                     message = "Match of \(matrix[which].value)"
+                    isMatch = true
                     previous = -1
+                    
                     print("matched value, and previous value is :\(previous)")
                     return
                 }
@@ -78,15 +83,19 @@ class MatchGame{
                 else{
                     matrix[previous].isShowing = false
                     previous = which
+                    isMatch = false
                     print("no match, previous value is: \(previous)")
                 }
             }
             
             if (previous == -1 && flips > 1){
+                isMatch = false
                 previous = which
+                
                 print("set previous value equal to which: \(previous)")
             }
             else{
+                isMatch = false
                 previous = which
                 print("previous equals which: \(previous)")
             }

@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var Card4_4: UIImageView!
     
     // dont need deck any more
-    //var deck = Deck()
+    var deck = Deck()
     
     //create the model
     var matchGame = MatchGame()
@@ -70,10 +70,19 @@ class ViewController: UIViewController {
             for i in 0..<imageViews.count {
                 imageViews[i].image = matchGame.getImage(i)
             }
+            if(matchGame.isMatch){
+                imageViews[which].alpha = 0.5
+            }
             
             flipsLabel.text = "Flips: \(matchGame.flips)"
             scoreLabel.text = "Score: \(matchGame.score)"
             messageAreaLabel.text = matchGame.message
+            
+        }
+    }
+    @IBAction func restartGame(_ sender: UIButton) {
+        for i in 0..<imageViews.count{
+            
         }
     }
 }
