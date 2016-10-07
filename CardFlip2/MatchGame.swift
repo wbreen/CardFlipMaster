@@ -21,7 +21,7 @@ class MatchGame{
     let deck = Deck()
     var flips = 0
     var score = 0
-    var message = "Welcome Lowly Human!"
+    var message = "Good Luck!"
     
     //sets first value of the previous card
     var previous = -1       //use a negative number b/c it isn't in the deck
@@ -42,12 +42,9 @@ class MatchGame{
     
     func flipCardUp(_ which: Int){
         if matrix[which].isShowing == false{
-            //flip up
             matrix[which].isShowing = true
             flips += 1
-            //if the card flips give -1, will need to change in final version
             score -= 1
-            //update the message at the bottom of the screen
             message = matrix[which].text
             
             if(previous != -1){      //for first time, needs protection so we don't try to use -1 as the previous card value
@@ -108,5 +105,10 @@ class MatchGame{
             //if front is showing, we want to send that 
             //if back is showing, send the back
         return matrix[which].getImage()
+    }
+    func setBack(){
+        for i in 0..<16{
+            matrix[i].isShowing = false
+        }
     }
 }

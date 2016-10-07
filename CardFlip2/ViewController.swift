@@ -57,6 +57,7 @@ class ViewController: UIViewController {
         let card = sender.view! as! UIImageView
         
         var which = -1
+        //var previous = -1
         
         //which card was tapped?
         for i in 0..<imageViews.count{
@@ -69,20 +70,36 @@ class ViewController: UIViewController {
             
             for i in 0..<imageViews.count {
                 imageViews[i].image = matchGame.getImage(i)
-            }
-            if(matchGame.isMatch){
-                imageViews[which].alpha = 0.5
+                if(matchGame.isMatch){
+                    imageViews[which].alpha = 0.5
+                    //imageViews[matchGame.previous].alpha = 0.5
+                }
+
             }
             
             flipsLabel.text = "Flips: \(matchGame.flips)"
             scoreLabel.text = "Score: \(matchGame.score)"
             messageAreaLabel.text = matchGame.message
-            
+            //previous = which
         }
+        //previous = which
     }
     @IBAction func restartGame(_ sender: UIButton) {
+        
+        matchGame.flips = 0
+        matchGame.score = 0
+        matchGame.previous = -1
+        messageAreaLabel.text = "New Game"
+        flipsLabel.text = "Flips: \(matchGame.flips)"
+        scoreLabel.text = "Score: \(matchGame.flips)"
+        
         for i in 0..<imageViews.count{
+            matchGame.setBack()
+            matchGame.matrix.append(deck.drawRandomCard())
+            imageViews[i].alpha = 1.0
+            imageViews[i].image = matchGame.getImage(i)
             
         }
+        
     }
 }
